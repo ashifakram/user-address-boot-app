@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: user-address-boot-app:latest
+    ports:
+      - "8080:8080"
+    container_name: user-address-app
+    environment:
+      JAVA_OPTS: ""
+      SPRING_DATASOURCE_URL: jdbc:mysql://host.docker.internal:3306/user-address-boot-app
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: admin
+    # Optional: If you have dependencies like a database, you can add them here
+    # depends_on:
+    #   - db
